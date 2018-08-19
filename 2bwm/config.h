@@ -19,7 +19,7 @@ static const uint8_t offsets[] = {0,0,0,0};
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
-static const char *colors[] = {"#1e2e36","#1e2e36","#121c21","#F07178","#F78C6C","#121c21","#263238"};
+static const char *colors[] = {"#1e2e36","#1e2e36","#071d22","#F07178","#F78C6C","#071d22","#263238"};
 /* if this is set to true the inner border and outer borders colors will be swapped */
 static const bool inverted_colors = false;
 ///---Cursor---///
@@ -44,8 +44,8 @@ static const char *menucmd[]   = { "", NULL };
 
 static const char *terminalcmd[]   = { "st", NULL };
 static const char *rofi[]   = { "rofi", "-show", "drun", NULL };
-static const char *volUp[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *volDown[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *volUp[] = { "pactl", "set-sink-volume", "1", "+5%", NULL };
+static const char *volDown[] = { "pactl", "set-sink-volume", "1", "-5%", NULL };
 
 ///--Custom foo---///
 static void halfandcentered(const Arg *arg)
