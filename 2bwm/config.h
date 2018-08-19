@@ -44,8 +44,8 @@ static const char *menucmd[]   = { "", NULL };
 
 static const char *terminalcmd[]   = { "st", NULL };
 static const char *rofi[]   = { "rofi", "-show", "drun", NULL };
-static const char *volUp[] = { "pactl", "set-sink-volume", "1", "+5%", NULL };
-static const char *volDown[] = { "pactl", "set-sink-volume", "1", "-5%", NULL };
+static const char *volUp[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *volDown[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 
 ///--Custom foo---///
 static void halfandcentered(const Arg *arg)
