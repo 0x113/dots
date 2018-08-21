@@ -57,7 +57,7 @@ font-0 = scientifica:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = xwindow
+modules-left = 2bws
 modules-center = date
 modules-right = volume  battery
 
@@ -80,7 +80,7 @@ tray-padding = 2
 
 [module/2bws]
 type              = custom/script
-exec              = ~/scripts/2bws.sh
+exec              = ~/.scripts/2bws.sh
 interval          = 0.01
 format-padding    = 3
 format-foreground = ${colors.foreground}
