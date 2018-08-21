@@ -22,11 +22,8 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
 
 " ---------- COLORS ------------
 Plug 'chriskempson/base16-vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'endel/vim-github-colorscheme'
 Plug 'arcticicestudio/nord-vim'
-Plug 'rakr/vim-one'
-Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 " ------------------------------
@@ -129,8 +126,8 @@ syntax on
 set encoding=utf-8
 set termguicolors
 let base16colorspace=256
-colorscheme agila
 set background=dark
+colorscheme nord
 
 " hightlight gohtml as html
 au BufReadPost *.gohtml set syntax=html
