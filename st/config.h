@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Termsyn:pixelsize=11:antialias=false:autohint=true";
+static char *font = "lemon:pixelsize=11:antialias=true:autohint=false";
 static int borderpx = 2;
 
 /*
