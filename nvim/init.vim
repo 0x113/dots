@@ -109,6 +109,102 @@ autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ----------------------------------
 
+" ------------------------ LIGHTLINE ---------------------------
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'linter_warnings', 'linter_errors', 'linter_ok' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'readonly': 'LightLineReadonly',
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename',
+      \ },
+      \ 'component_expand': {
+      \   'linter_warnings': 'LightlineLinterWarnings',
+      \   'linter_errors': 'LightlineLinterErrors',
+      \   'linter_ok': 'LightlineLinterOK'
+      \ },
+      \ 'component_type': {
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \   'linter_ok': 'ok',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! LightLineModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ''
+    else
+        return ""
+    endif
+endfunction
+
+function! LightLineFugitive()
+    if exists("*fugitive#head")
+        let branch = fugitive#head()
+       return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
+endfunction
+
+function! LightLineFilename()
+    return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+           \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+autocmd User ALELint call lightline#update()
+
+" ale + lightline
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d --', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d >>', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓' : ''
+endfunction
+
+function! s:syntastic()
+  SyntasticCheck
+    call lightline#update()
+endfunction
 
 " -------------- FIXES -------------
 " disable backup
@@ -128,6 +224,7 @@ set termguicolors
 let base16colorspace=256
 set background=dark
 colorscheme nord
+set noshowmode
 
 " hightlight gohtml as html
 au BufReadPost *.gohtml set syntax=html
