@@ -57,7 +57,7 @@ font-0 = scientifica:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = 2bws
+modules-left = xwindow
 modules-center = date
 modules-right = volume  battery
 
