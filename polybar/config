@@ -293,7 +293,7 @@ full-at = 98
 
 label-charging = %percentage%
 label-discharging = %percentage%
-label-discharging-background = $(colors.background)
+format-discharging-background = #193139
 label-discharging-prefix-background = $(colors.background)
 
 format-charging = bat <label-charging>
