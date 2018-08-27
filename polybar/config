@@ -282,7 +282,9 @@ label-volume-background = #193139
 label-volume-padding = 2
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = #a0a0a0
+format-muted-background = #193139
+format-muted-padding = 2
 label-muted = sound muted
 
 [module/battery]
