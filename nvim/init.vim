@@ -105,6 +105,7 @@ set expandtab ts=4 sw=4 ai
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ----------------------------------
@@ -228,6 +229,7 @@ set noshowmode
 
 " hightlight gohtml as html
 au BufReadPost *.gohtml set syntax=html
+au BufReadPost *.html set syntax=html
 autocmd BufWritePre * :%s/\s\+$//e
 
 " disable highlight for search
