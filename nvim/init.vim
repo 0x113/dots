@@ -18,6 +18,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
+Plug 'davidhalter/jedi-vim'
 " ------------------------------
 
 " ---------- COLORS ------------
@@ -51,6 +52,9 @@ let g:deoplete#enable_at_startup = 1
 setlocal omnifunc=go#complete#Complete
 let g:deoplete#sources#go#gocode_binary = '/home/xa0s/Code/Go/bin/gocode'
 
+autocmd FileType python
+       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+
 "8) vim-latext-live-preview
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'zathura'
@@ -80,6 +84,9 @@ nnoremap <C-H> <C-W><C-H>
 map <C-t> :tabnew <Enter>
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
+
+map <C-S-Right> <Esc>:vertical resize +5<Enter>
+map <C-S-Left> <Esc>:vertical resize -5<Enter>
 
 " run code
 nnoremap <silent> <F5> :!python3 %<CR>
