@@ -18,7 +18,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
-Plug 'davidhalter/jedi-vim'
 " ------------------------------
 
 " ---------- COLORS ------------
@@ -231,13 +230,14 @@ set encoding=utf-8
 set termguicolors
 let base16colorspace=256
 set background=dark
-colorscheme nord
+colorscheme agila
 set noshowmode
 
 " hightlight gohtml as html
 au BufReadPost *.gohtml set syntax=html
 au BufReadPost *.html set syntax=html
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePost *.tex !pdflatex % <afile>
 
 " disable highlight for search
 set nohlsearch
