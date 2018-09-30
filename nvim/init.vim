@@ -9,7 +9,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'nsf/gocode', {'rtp': 'vim/'}
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'airblade/vim-gitgutter'
 Plug 'posva/vim-vue'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -229,8 +229,8 @@ syntax on
 set encoding=utf-8
 set termguicolors
 let base16colorspace=256
-set background=dark
 colorscheme agila
+set background=dark
 set noshowmode
 
 " hightlight gohtml as html
