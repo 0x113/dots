@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "lemon:pixelsize=11:antialias=true:autohint=false";
+// lemon, cherry
+static char *font = "lemon:pixelsize=9:antialias=true:autohint=false";
 static int borderpx = 2;
 
 /*
@@ -83,59 +84,59 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-
-  /* 8 normal colors */
-  [0] = "#071d22", /* black   */
-  [1] = "#f8a1aa", /* red     */
-  [2] = "#8cc495", /* green   */
-  [3] = "#f0e0aa", /* yellow  */
-  [4] = "#8ab6c2", /* blue    */
-  [5] = "#94a9d9", /* magenta */
-  [6] = "#7eb5ac", /* cyan    */
-  [7] = "#b3bec1", /* white   */
-
-  /* 8 bright colors */
-  [8]  = "#617278", /* black   */
-  [9]  = "#e9b3bf", /* red     */
-  [10] = "#ade1b6", /* green   */
-  [11] = "#fbf1cf", /* yellow  */
-  [12] = "#b5dbe4", /* blue    */
-  [13] = "#b6cbfa", /* magenta */
-  [14] = "#a3d0c8", /* cyan    */
-  [15] = "#f7f8f8", /* white   */
-
-  /* special colors */
-  [256] = "#071d22", /* background */
-  [257] = "#ffffff", /* foreground */
-};
-
 //static const char *colorname[] = {
 //
 //  /* 8 normal colors */
-//  [0] = "#032c36", /* black   */
-//  [1] = "#c2454e", /* red     */
-//  [2] = "#7cbf9e", /* green   */
-//  [3] = "#8a7a63", /* yellow  */
-//  [4] = "#2e3340", /* blue    */
-//  [5] = "#ff5879", /* magenta */
-//  [6] = "#44b5b1", /* cyan    */
-//  [7] = "#f2f1b9", /* white   */
+//  [0] = "#071d22", /* black   */
+//  [1] = "#f8a1aa", /* red     */
+//  [2] = "#8cc495", /* green   */
+//  [3] = "#f0e0aa", /* yellow  */
+//  [4] = "#8ab6c2", /* blue    */
+//  [5] = "#94a9d9", /* magenta */
+//  [6] = "#7eb5ac", /* cyan    */
+//  [7] = "#b3bec1", /* white   */
 //
 //  /* 8 bright colors */
-//  [8]  = "#065f73", /* black   */
-//  [9]  = "#ef5847", /* red     */
-//  [10] = "#a2d9b1", /* green   */
-//  [11] = "#beb090", /* yellow  */
-//  [12] = "#61778d", /* blue    */
-//  [13] = "#ff99a1", /* magenta */
-//  [14] = "#9ed9d8", /* cyan    */
-//  [15] = "#f6f6c9", /* white   */
+//  [8]  = "#617278", /* black   */
+//  [9]  = "#e9b3bf", /* red     */
+//  [10] = "#ade1b6", /* green   */
+//  [11] = "#fbf1cf", /* yellow  */
+//  [12] = "#b5dbe4", /* blue    */
+//  [13] = "#b6cbfa", /* magenta */
+//  [14] = "#a3d0c8", /* cyan    */
+//  [15] = "#f7f8f8", /* white   */
 //
 //  /* special colors */
-//  [256] = "#071D22", /* background */
-//  [257] = "#e8dfd6", /* foreground */
+//  [256] = "#071d22", /* background */
+//  [257] = "#ffffff", /* foreground */
 //};
+
+static const char *colorname[] = {
+
+  /* 8 normal colors */
+  [0] = "#032c36", /* black   */
+  [1] = "#c2454e", /* red     */
+  [2] = "#7cbf9e", /* green   */
+  [3] = "#8a7a63", /* yellow  */
+  [4] = "#2e3340", /* blue    */
+  [5] = "#ff5879", /* magenta */
+  [6] = "#44b5b1", /* cyan    */
+  [7] = "#f2f1b9", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#065f73", /* black   */
+  [9]  = "#ef5847", /* red     */
+  [10] = "#a2d9b1", /* green   */
+  [11] = "#beb090", /* yellow  */
+  [12] = "#61778d", /* blue    */
+  [13] = "#ff99a1", /* magenta */
+  [14] = "#9ed9d8", /* cyan    */
+  [15] = "#f6f6c9", /* white   */
+
+  /* special colors */
+  [256] = "#071D22", /* background */
+  [257] = "#e8dfd6", /* foreground */
+};
 
 /*
  * Default colors (colorname index)
