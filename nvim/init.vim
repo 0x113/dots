@@ -24,6 +24,8 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
 Plug 'chriskempson/base16-vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 " ------------------------------
@@ -65,7 +67,7 @@ let g:goyo_height = "90%"
 let g:goyo_lineaer = 0
 
 "10) IndentLine
-let g:indentLine_enabled = 1
+let g:indentLine_enabled = 0
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
@@ -119,7 +121,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'filename' ] ],
@@ -229,13 +231,10 @@ syntax on
 set encoding=utf-8
 set termguicolors
 let base16colorspace=256
-colorscheme agila
 set background=dark
+colorscheme agila
 set noshowmode
 
-" hightlight gohtml as html
-au BufReadPost *.gohtml set syntax=html
-au BufReadPost *.html set syntax=html
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePost *.tex !pdflatex % <afile>
 
