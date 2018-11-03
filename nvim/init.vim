@@ -26,6 +26,8 @@ Plug 'endel/vim-github-colorscheme'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ayu-theme/ayu-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 " ------------------------------
@@ -121,7 +123,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'filename' ] ],
@@ -231,8 +233,12 @@ syntax on
 set encoding=utf-8
 set termguicolors
 let base16colorspace=256
+let g:seoul256_background = 233
+let g:seoul256_light_background = 256
+
+colo deep-space
 set background=dark
-colorscheme agila
+"colorscheme agila
 set noshowmode
 
 autocmd BufWritePre * :%s/\s\+$//e
@@ -249,7 +255,9 @@ set number
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
+let g:go_fmt_command = "goimports"
 
 " disable func parameters
 set completeopt-=preview
+set guicursor=
 " ----------------------------------
