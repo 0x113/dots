@@ -81,7 +81,7 @@ tray-padding = 2
 [module/mpd-go]
 type              = custom/script
 exec              = ~/.config/scripts/mpd_go
-interval          = 1.0
+interval          = 3.0
 format-padding    = 3
 format-foreground = ${colors.foreground}
 
