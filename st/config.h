@@ -7,7 +7,7 @@
  */
 // lemon, cherry
 static char *font = "scientifica:pixelsize=9:antialias=true:autohint=false";
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
