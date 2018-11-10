@@ -259,5 +259,5 @@ let g:go_fmt_command = "goimports"
 
 " disable func parameters
 set completeopt-=preview
-set guicursor=
+"set guicursor=
 " ----------------------------------
