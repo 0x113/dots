@@ -7,7 +7,7 @@
  */
 // lemon, cherry
 static char *font = "scientifica:pixelsize=9:antialias=true:autohint=false";
-static int borderpx = 0;
+static int borderpx = 10;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -84,89 +84,33 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-//static const char *colorname[] = {
-//
-//  /* 8 normal colors */
-//  [0] = "#071d22", /* black   */
-//  [1] = "#f8a1aa", /* red     */
-//  [2] = "#8cc495", /* green   */
-//  [3] = "#f0e0aa", /* yellow  */
-//  [4] = "#8ab6c2", /* blue    */
-//  [5] = "#94a9d9", /* magenta */
-//  [6] = "#7eb5ac", /* cyan    */
-//  [7] = "#b3bec1", /* white   */
-//
-//  /* 8 bright colors */
-//  [8]  = "#617278", /* black   */
-//  [9]  = "#e9b3bf", /* red     */
-//  [10] = "#ade1b6", /* green   */
-//  [11] = "#fbf1cf", /* yellow  */
-//  [12] = "#b5dbe4", /* blue    */
-//  [13] = "#b6cbfa", /* magenta */
-//  [14] = "#a3d0c8", /* cyan    */
-//  [15] = "#f7f8f8", /* white   */
-//
-//  /* special colors */
-//  [256] = "#071d22", /* background */
-//  [257] = "#ffffff", /* foreground */
-//};
-
-//static const char *colorname[] = {
-//
-//  /* 8 normal colors */
-//  [0] = "#032c36", /* black   */
-//  [1] = "#c2454e", /* red     */
-//  [2] = "#7cbf9e", /* green   */
-//  [3] = "#8a7a63", /* yellow  */
-//  [4] = "#2e3340", /* blue    */
-//  [5] = "#ff5879", /* magenta */
-//  [6] = "#44b5b1", /* cyan    */
-//  [7] = "#f2f1b9", /* white   */
-//
-//  /* 8 bright colors */
-//  [8]  = "#065f73", /* black   */
-//  [9]  = "#ef5847", /* red     */
-//  [10] = "#a2d9b1", /* green   */
-//  [11] = "#beb090", /* yellow  */
-//  [12] = "#61778d", /* blue    */
-//  [13] = "#ff99a1", /* magenta */
-//  [14] = "#9ed9d8", /* cyan    */
-//  [15] = "#f6f6c9", /* white   */
-//
-//  /* special colors */
-//  [256] = "#071D22", /* background */
-//  [257] = "#e8dfd6", /* foreground */
-//};
-
-
-const char *colorname[] = {
+static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#090909", /* black   */
-  [1] = "#64655A", /* red     */
-  [2] = "#70716F", /* green   */
-  [3] = "#817D77", /* yellow  */
-  [4] = "#7C8372", /* blue    */
-  [5] = "#848679", /* magenta */
-  [6] = "#767985", /* cyan    */
-  [7] = "#b5b8bb", /* white   */
+  [0] = "#1d1f21", /* black   */
+  [1] = "#cc6666", /* red     */
+  [2] = "#b5bd68", /* green   */
+  [3] = "#f0c674", /* yellow  */
+  [4] = "#81a2be", /* blue    */
+  [5] = "#b294bb", /* magenta */
+  [6] = "#8abeb7", /* cyan    */
+  [7] = "#c5c8c6", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#7e8082",  /* black   */
-  [9]  = "#64655A",  /* red     */
-  [10] = "#70716F", /* green   */
-  [11] = "#817D77", /* yellow  */
-  [12] = "#7C8372", /* blue    */
-  [13] = "#848679", /* magenta */
-  [14] = "#767985", /* cyan    */
-  [15] = "#b5b8bb", /* white   */
+  [8]  = "#969896", /* black   */
+  [9]  = "#cc6666", /* red     */
+  [10] = "#b5bd68", /* green   */
+  [11] = "#f0c674", /* yellow  */
+  [12] = "#81a2be", /* blue    */
+  [13] = "#b294bb", /* magenta */
+  [14] = "#8abeb7", /* cyan    */
+  [15] = "#ffffff", /* white   */
 
   /* special colors */
-  [256] = "#090909", /* background */
-  [257] = "#b5b8bb", /* foreground */
+  [256] = "#1b202a", /* background */
+  [257] = "#c5c8c6", /* foreground */
   [258] = "#b5b8bb",     /* cursor */
 };
-
 
 
 /*
