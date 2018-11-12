@@ -54,7 +54,6 @@ label = " %output%"
 [module/wlan]
 type              = custom/script
 exec              = ~/.config/scripts/wlan.sh
-interval          = 60
 format            = <label>
 format-padding    = 2
 format-background = ${colors.black}
