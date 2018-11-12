@@ -11,15 +11,15 @@ white   = #D5CFC9
 padding = 1
 
 [bar/main]
-width    = 281
+width    = 313
 height   = 27
 offset-x = 545.75
 offset-y = 3%
 
 
 ;radius            = 5
-monitor           = HDMI2
-;monitor = ${env:MONITOR:}
+;monitor           = HDMI2
+monitor = ${env:MONITOR:}
 override-redirect = true
 
 font-0 = Lemon:pixelsize=8;1
@@ -32,7 +32,7 @@ background = ${colors.black}
 foreground = ${colors.red}
 
 ;modules-left   = mpd-go
-modules-center = who memory date volume battery
+modules-center = who wlan date volume battery
 ;modules-right  = volume battery
 
 fixed-center  = true
@@ -45,10 +45,21 @@ bottom = true
 [module/who]
 type              = custom/script
 exec              = ~/.config/scripts/who
-interval          = 3.0
-format-padding    = 3
+format            = <label>
+format-padding    = 2
 format-background = ${colors.white}
 format-foreground = ${colors.black}
+label = " %output%"
+
+[module/wlan]
+type              = custom/script
+exec              = ~/.config/scripts/wlan.sh
+interval          = 60
+format            = <label>
+format-padding    = 2
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+label = " %output%"
 
 [module/memory]
 type = internal/memory
@@ -57,7 +68,7 @@ format-prefix = " "
 format-foreground = ${colors.white}
 format-background = ${colors.black}
 label = %percentage_used%%
-format-padding = 2
+format-padding= 2
 
 ; Battery
 [module/battery]
@@ -66,7 +77,7 @@ battery = BAT0
 adapter = ACAD
 full-at = 95
 
-format-padding = 1
+format-padding = 2
 
 format-charging            = <ramp-capacity> <label-charging>
 format-charging-foreground = ${colors.black}
@@ -91,10 +102,10 @@ label-discharging-foreground = ${colors.black}
 label-charging-foreground = ${colors.black}
 label-full-foreground = ${colors.black}
 
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
 ramp-capacity-foreground = ${colors.black}
 
 ; Date
@@ -122,6 +133,7 @@ label-volume = "%percentage%% "
 label-volume-foreground = ${colors.white}
 format-volume-background= ${colors.black}
 label-volume-padding = ${dims.padding}
+format-volume-padding = ${dims.padding}
 
 ramp-headphone-0 = " "
 ramp-headphone-1 = " "
@@ -136,3 +148,4 @@ label-muted = " mut "
 label-muted-foreground = ${colors.gray}
 label-muted-background = ${colors.black}
 label-muted-padding = ${dims.padding}
+format-muted-padding = ${dims.padding}
