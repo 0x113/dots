@@ -13,7 +13,7 @@ padding = 1
 [bar/main]
 width    = 313
 height   = 27
-offset-x = 545.75
+offset-x = 527.5
 offset-y = 3%
 
 
