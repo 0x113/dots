@@ -28,6 +28,7 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'tomasr/molokai'
 
 call plug#end()
 " ------------------------------
@@ -123,7 +124,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'OldHope',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'filename' ] ],
@@ -259,5 +260,6 @@ let g:go_fmt_command = "goimports"
 
 " disable func parameters
 set completeopt-=preview
-"set guicursor=
+
+set guicursor=
 " ----------------------------------
