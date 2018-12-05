@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // lemon, cherry
-static char *font = "scientifica:pixelsize=9:antialias=true:autohint=false";
+static char *font = "lemon:pixelsize=9:antialias=true:autohint=false";
 static int borderpx = 10;
 
 /*
