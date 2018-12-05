@@ -21,7 +21,6 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
 " ------------------------------
 
 " ---------- COLORS ------------
-Plug 'chriskempson/base16-vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
@@ -29,6 +28,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'tomasr/molokai'
+Plug 'AlessandroYorba/Sierra'
 
 call plug#end()
 " ------------------------------
@@ -237,13 +237,14 @@ let base16colorspace=256
 let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
-colo deep-space
+let g:sierra_Twilight = 1
+colo sierra
 set background=dark
 "colorscheme agila
 set noshowmode
 
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePost *.tex !pdflatex % <afile>
+autocmd BufWritePost *.tex !pdflatex -output-directory pdfs/ % <afile>
 
 " disable highlight for search
 set nohlsearch
@@ -256,6 +257,9 @@ set number
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+
 let g:go_fmt_command = "goimports"
 
 " disable func parameters
