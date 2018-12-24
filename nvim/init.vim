@@ -29,6 +29,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'tomasr/molokai'
 Plug 'AlessandroYorba/Sierra'
+Plug 'vim-scripts/0x7A69_dark.vim'
 
 call plug#end()
 " ------------------------------
@@ -149,10 +150,11 @@ let g:lightline = {
       \   'linter_errors': 'error',
       \   'linter_ok': 'ok',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
-
+" sep -
+" right sep 
 function! LightLineModified()
     if &filetype == "help"
         return ""
