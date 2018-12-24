@@ -184,6 +184,7 @@ client.background       #D5CFC9
 
 for_window [class="^.*"] border normal 0
 for_window [class="qutebrowser"] border pixel 1
+for_window [class="Brave-browser"] border pixel 1
 
 # Always float virtualbox.
 for_window [class="^.*"] floating enable
