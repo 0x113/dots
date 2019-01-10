@@ -183,11 +183,16 @@ client.background       #D5CFC9
 # }
 
 for_window [class="^.*"] border normal 0
-for_window [class="qutebrowser"] border pixel 1
-for_window [class="Brave-browser"] border pixel 1
+for_window [class="qutebrowser"] border pixel 0
+for_window [class="Brave-browser"] border pixel 0
+for_window [class="feh"] border pixel 0
+
+smart_borders on
+gaps inner 25
 
 # Always float virtualbox.
 for_window [class="^.*"] floating enable
+font pango:lemon 10
 for_window [class=".*"] title_format "<span font='lemon 7'> > %title</span>"
 
 bindsym $mod+F2 exec "pactl set-sink-volume 0 -5%"
