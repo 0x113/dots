@@ -16,12 +16,12 @@ horizontal_padding = 20
 [urgency_low]
 background = "#EEEEEE"
 foreground = "#021B21"
-timeout = 5
+timeout = 8
 
 [urgency_normal]
 background = "#EEEEEE"
 foreground = "#021B21"
-timeout = 5
+timeout = 8
 
 [urgency_critical]
 background = "#EEEEEE"
