@@ -18,6 +18,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/limelight.vim'
+Plug 'bilalq/lite-dfm'
+Plug 'dart-lang/dart-vim-plugin'
 " ------------------------------
 
 " ---------- COLORS ------------
@@ -29,7 +33,9 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'tomasr/molokai'
 Plug 'AlessandroYorba/Sierra'
-Plug 'vim-scripts/0x7A69_dark.vim'
+Plug 'kamwitsta/flatwhite-vim'
+Plug 'alexanderjeurissen/lumiere.vim'
+Plug 'Lokaltog/vim-monotone'
 
 call plug#end()
 " ------------------------------
@@ -38,6 +44,44 @@ call plug#end()
 "1) nerdtree
 map <F8> :NERDTreeToggle<CR>
 let base16colorspace=256
+
+let g:limelight_default_coefficient = 0.5
+let g:limelight_paragraph_span = 0    " include preceding/following paragraphs
+let g:limelight_priority       = 10    " -1 to hlsearch highlight all paragraphs, 1 per paragraph
+let g:lite_dfm_left_offset = 25
+
+nnoremap <F4> :LiteDFMToggle<CR>
+
+
+map <F7> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : '/home/xa0s/Code/Go/src/github.com/jstemmer/gotags/gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
+
 
 "2) emmet
 " autocomplete on tab
@@ -58,7 +102,7 @@ setlocal omnifunc=go#complete#Complete
 let g:deoplete#sources#go#gocode_binary = '/home/xa0s/Code/Go/bin/gocode'
 
 autocmd FileType python
-       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+            \ call deoplete#custom#buffer_option('auto_complete', v:false)
 
 "8) vim-latext-live-preview
 autocmd Filetype tex setl updatetime=1
@@ -125,34 +169,34 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'OldHope',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'linter_warnings', 'linter_errors', 'linter_ok' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
-      \   'readonly': 'LightLineReadonly',
-      \   'modified': 'LightLineModified',
-      \   'filename': 'LightLineFilename',
-      \ },
-      \ 'component_expand': {
-      \   'linter_warnings': 'LightlineLinterWarnings',
-      \   'linter_errors': 'LightlineLinterErrors',
-      \   'linter_ok': 'LightlineLinterOK'
-      \ },
-      \ 'component_type': {
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
-      \   'linter_ok': 'ok',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+            \ 'colorscheme': 'OldHope',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'filename' ] ],
+            \   'right': [ [ 'lineinfo' ],
+            \              [ 'percent' ],
+            \              [ 'linter_warnings', 'linter_errors', 'linter_ok' ],
+            \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+            \ },
+            \ 'component_function': {
+            \   'fugitive': 'LightLineFugitive',
+            \   'readonly': 'LightLineReadonly',
+            \   'modified': 'LightLineModified',
+            \   'filename': 'LightLineFilename',
+            \ },
+            \ 'component_expand': {
+            \   'linter_warnings': 'LightlineLinterWarnings',
+            \   'linter_errors': 'LightlineLinterErrors',
+            \   'linter_ok': 'LightlineLinterOK'
+            \ },
+            \ 'component_type': {
+            \   'linter_warnings': 'warning',
+            \   'linter_errors': 'error',
+            \   'linter_ok': 'ok',
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
 " sep -
 " right sep 
 function! LightLineModified()
@@ -180,43 +224,43 @@ endfunction
 function! LightLineFugitive()
     if exists("*fugitive#head")
         let branch = fugitive#head()
-       return branch !=# '' ? ' '.branch : ''
+        return branch !=# '' ? ' '.branch : ''
     endif
     return ''
 endfunction
 
 function! LightLineFilename()
     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-           \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
 autocmd User ALELint call lightline#update()
 
 " ale + lightline
 function! LightlineLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d --', all_non_errors)
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d --', all_non_errors)
 endfunction
 
 function! LightlineLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d >>', all_errors)
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d >>', all_errors)
 endfunction
 
 function! LightlineLinterOK() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓' : ''
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '✓' : ''
 endfunction
 
 function! s:syntastic()
-  SyntasticCheck
+    SyntasticCheck
     call lightline#update()
 endfunction
 
@@ -240,7 +284,7 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo sierra
+colo preto_low
 set background=dark
 "colorscheme agila
 set noshowmode
@@ -261,6 +305,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
@@ -268,4 +316,11 @@ let g:go_fmt_command = "goimports"
 set completeopt-=preview
 
 set guicursor=
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+au FileType dart set tabstop=2
+" when indenting with '>', use 4 spaces width
+au FileType dart set shiftwidth=2
+" On pressing tab, insert 4 spaces
 " ----------------------------------
