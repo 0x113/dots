@@ -21,7 +21,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/limelight.vim'
 Plug 'bilalq/lite-dfm'
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'kien/ctrlp.vim'
 " ------------------------------
 
 " ---------- COLORS ------------
@@ -34,8 +34,10 @@ Plug 'junegunn/seoul256.vim'
 Plug 'tomasr/molokai'
 Plug 'AlessandroYorba/Sierra'
 Plug 'kamwitsta/flatwhite-vim'
-Plug 'alexanderjeurissen/lumiere.vim'
-Plug 'Lokaltog/vim-monotone'
+Plug 'cseelus/vim-colors-tone'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'reedes/vim-colors-pencil'
+Plug 'rakr/vim-one'
 
 call plug#end()
 " ------------------------------
@@ -51,6 +53,11 @@ let g:limelight_priority       = 10    " -1 to hlsearch highlight all paragraphs
 let g:lite_dfm_left_offset = 25
 
 nnoremap <F4> :LiteDFMToggle<CR>
+
+" ================  Ctrl P settings ===========================
+let g:ctrlp_max_files    = 10000
+let g:ctrlp_max_depth    = 40
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:100'
 
 
 map <F7> :TagbarToggle<CR>
@@ -169,7 +176,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-            \ 'colorscheme': 'OldHope',
+            \ 'colorscheme': 'nord',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'filename' ] ],
@@ -194,8 +201,8 @@ let g:lightline = {
             \   'linter_errors': 'error',
             \   'linter_ok': 'ok',
             \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
             \ }
 " sep -
 " right sep 
@@ -284,13 +291,13 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo preto_low
+colo tone
 set background=dark
 "colorscheme agila
 set noshowmode
 
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePost *.tex !pdflatex -output-directory pdfs/ % <afile>
+"autocmd BufWritePost *.tex !pdflatex -output-directory pdfs/ % <afile>
 
 " disable highlight for search
 set nohlsearch
@@ -315,12 +322,14 @@ let g:go_fmt_command = "goimports"
 " disable func parameters
 set completeopt-=preview
 
-set guicursor=
 
-filetype plugin indent on
+" filetype plugin indent on
 " show existing tab with 4 spaces width
-au FileType dart set tabstop=2
+" au FileType dart set tabstop=2
 " when indenting with '>', use 4 spaces width
-au FileType dart set shiftwidth=2
+" au FileType dart set shiftwidth=2
 " On pressing tab, insert 4 spaces
 " ----------------------------------
+
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
