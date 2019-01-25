@@ -1,11 +1,10 @@
 [colors]
-black  = #1f1c21
+black = #0d0d10
 red    = ${xrdb:color1}
 yellow = ${xrdb:color4}
 blue   = ${xrdb:color2}
 gray   = #8b858e
-;white  = #f2f3f4
-white   = #D5CFC9
+white = #c1cbc8
 
 [dims]
 padding = 1
@@ -42,6 +41,72 @@ tray-maxsize  = 20
 
 bottom = true
 
+[bar/second]
+width = 98%
+height = 20
+;monitor = HDMI2
+monitor = ${env:MONITOR:}
+offset-y = 1%
+offset-x = 1%
+
+#module-margin = 2
+
+override-redirect = true
+font-0 = scientifica:pixelsize=8:weight=bold;1
+font-1 = FontAwesome:pixelsize=8;1
+font-2 = Siji:pixelsize=7;2
+font-3 = unifont:pixelsize=8
+font-4 = Iosevka Medium:size=7;1
+
+background = #00a0000a
+foreground = ${colors.red}
+
+modules-left   = i3 mpd
+;modules-center = who wlan date volume battery
+modules-right  = network volume battery date
+
+fixed-center  = true
+#wm-restack    = bspwm
+tray-position = right
+tray-maxsize  = 20
+
+bottom = true
+
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = false
+strip-wsnumbers = true
+index-sort = true
+enable-click = false
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+format-padding = 2
+
+label-focused = %index%
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.white}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.white}
+label-unfocused-background = ${colors.black}
+label-unfocused-padding = 1
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.white}
+label-urgent-background = ${colors.black}
+label-urgent-padding = 1
+
+label-visible = %index%
+label-visible-foreground = ${colors.white}
+label-visible-background = ${colors.black}
+label-visible-padding = 1
+
 [module/who]
 type              = custom/script
 exec              = ~/.config/scripts/who
@@ -50,6 +115,40 @@ format-padding    = 2
 format-background = ${colors.white}
 format-foreground = ${colors.black}
 label = " %output%"
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+label-song = %artist% - %title%
+label-offline = 🎜 mpd is offline
+label-song-foreground = ${colors.white}
+label-song-background = ${colors.black}
+label-song-padding = 2
+
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+[module/network]
+type = internal/network
+interface = wlo1
+interval = 3.0
+udspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <label-connected>
+label-connected = %local_ip% (%essid%)
+format-connected-margin = 3
+format-connected-foreground=${colors.white}
+format-connected-background=${colors.black}
+format-connected-padding = 2
+
 
 [module/wlan]
 type              = custom/script
@@ -76,30 +175,30 @@ battery = BAT0
 adapter = ACAD
 full-at = 95
 
-format-padding = 2
+format-padding = 5
 
-format-charging            = <ramp-capacity> <label-charging>
-format-charging-foreground = ${colors.black}
-format-charging-background = ${colors.white}
+format-charging            = <label-charging>
+format-charging-foreground = ${colors.white}
+format-charging-background = ${colors.black}
 format-charging-padding    = ${dims.padding}
 
-format-discharging            = <ramp-capacity> <label-discharging>
-format-discharging-background = ${colors.white}
-format-discharging-foreground = ${colors.black}
+format-discharging            = <label-discharging>
+format-discharging-background = ${colors.black}
+format-discharging-foreground = ${colors.white}
 format-discharging-padding    = ${dims.padding}
 
-format-full            = <ramp-capacity> <label-full>
-format-full-background = ${colors.white}
-format-full-foreground = ${colors.black}
+format-full            = <label-full>
+format-full-background = ${colors.black}
+format-full-foreground = ${colors.white}
 format-full-padding    = ${dims.padding}
 
-label-charging = "%percentage%%  "
-label-discharging = "%percentage%%  "
-label-full        = "%percentage%% "
+label-charging = " %percentage%% "
+label-discharging = " %percentage%% "
+label-full        = " %percentage%% "
 
-label-discharging-foreground = ${colors.black}
-label-charging-foreground = ${colors.black}
-label-full-foreground = ${colors.black}
+label-discharging-foreground = ${colors.white}
+label-charging-foreground = ${colors.white}
+label-full-foreground = ${colors.white}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -115,20 +214,20 @@ interval = 1.0
 date = "%d.%m"
 
 ;time-alt = %a %d %b
-time     = %H:%M
+time     = %H:%M:%S
 
-label             = "%date% %time%"
+label             = "%time%"
 format            = "<label>"
-format-foreground = ${colors.black}
-format-background = ${colors.white}
+format-foreground = ${colors.white}
+format-background = ${colors.black}
 format-padding    = 2
 
 ; Volume
 [module/volume]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume><label-volume>
-label-volume = "%percentage%% "
+format-volume = <label-volume>
+label-volume = "%percentage%%"
 label-volume-foreground = ${colors.white}
 format-volume-background= ${colors.black}
 label-volume-padding = ${dims.padding}
@@ -143,7 +242,7 @@ ramp-volume-2 = " "
 ramp-volume-foreground = ${colors.white}
 
 format-muted = <label-muted>
-label-muted = " mut "
+label-muted = "mut "
 label-muted-foreground = ${colors.gray}
 label-muted-background = ${colors.black}
 label-muted-padding = ${dims.padding}
