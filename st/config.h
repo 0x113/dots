@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// lemon, cherry
-static char *font = "scientifica:pixelsize=9:antialias=true:autohint=false";
+// dweep, scientifica, cherry, lemon
+static char *font = "scientifica:pixelsize=9:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -83,32 +83,94 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+unsigned int alpha = 0xed;
+
+// TOMMOROW NIGHT
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#060606", /* black   */
-  [1] = "#c2454e", /* red     */
-  [2] = "#7cbf9e", /* green   */
-  [3] = "#8a7a63", /* yellow  */
-  [4] = "#e8dfd6", /* blue    */
-  [5] = "#ff5879", /* magenta */
-  [6] = "#44b5b1", /* cyan    */
-  [7] = "#f2f1b9", /* white   */
+  [0] = "#1d1f21", /* black   */
+  [1] = "#cc6666", /* red     */
+  [2] = "#b5bd68", /* green   */
+  [3] = "#f0c674", /* yellow  */
+  [4] = "#81a2be", /* blue    */
+  [5] = "#b294bb", /* magenta */
+  [6] = "#8abeb7", /* cyan    */
+  [7] = "#c5c8c6", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#060606", /* black   */
-  [9]  = "#ef5847", /* red     */
-  [10] = "#a2d9b1", /* green   */
-  [11] = "#beb090", /* yellow  */
-  [12] = "#61778d", /* blue    */
-  [13] = "#ff99a1", /* magenta */
-  [14] = "#9ed9d8", /* cyan    */
-  [15] = "#f6f6c9", /* white   */
+  [8]  = "#969896", /* black   */
+  [9]  = "#cc6666", /* red     */
+  [10] = "#b5bd68", /* green   */
+  [11] = "#f0c674", /* yellow  */
+  [12] = "#81a2be", /* blue    */
+  [13] = "#b294bb", /* magenta */
+  [14] = "#8abeb7", /* cyan    */
+  [15] = "#ffffff", /* white   */
 
   /* special colors */
-  [256] = "#060606", /* background */
-  [257] = "#e8dfd6", /* foreground */
+  [256] = "#1d1f21", /* background */
+  [257] = "#c5c8c6", /* foreground */
 };
+
+// PRETO
+//static const char *colorname[] = {
+//
+//  /* 8 normal colors */
+//  [0] = "#060606", /* black   */
+//  [1] = "#c2454e", /* red     */
+//  [2] = "#7cbf9e", /* green   */
+//  [3] = "#8a7a63", /* yellow  */
+//  [4] = "#e8dfd6", /* blue    */
+//  [5] = "#ff5879", /* magenta */
+//  [6] = "#44b5b1", /* cyan    */
+//  [7] = "#f2f1b9", /* white   */
+//
+//  /* 8 bright colors */
+//  [8]  = "#060606", /* black   */
+//  [9]  = "#ef5847", /* red     */
+//  [10] = "#a2d9b1", /* green   */
+//  [11] = "#beb090", /* yellow  */
+//  [12] = "#61778d", /* blue    */
+//  [13] = "#ff99a1", /* magenta */
+//  [14] = "#9ed9d8", /* cyan    */
+//  [15] = "#f6f6c9", /* white   */
+//
+//  /* special colors */
+//  [256] = "#060606", /* background */
+//  [257] = "#e8dfd6", /* foreground */
+//};
+
+// PENCIL
+
+//static const char *colorname[] = {
+//
+//  /* 8 normal colors */
+//  [0] = "#1c2023", /* black   */
+//  [1] = "#c7ae95", /* red     */
+//  [2] = "#95c7ae", /* green   */
+//  [3] = "#aec795", /* yellow  */
+//  [4] = "#ae95c7", /* blue    */
+//  [5] = "#c795ae", /* magenta */
+//  [6] = "#95aec7", /* cyan    */
+//  [7] = "#c7ccd1", /* white   */
+//
+//  /* 8 bright colors */
+//  [8]  = "#747c84", /* black   */
+//  [9]  = "#c7ae95", /* red     */
+//  [10] = "#95c7ae", /* green   */
+//  [11] = "#aec795", /* yellow  */
+//  [12] = "#ae95c7", /* blue    */
+//  [13] = "#c795ae", /* magenta */
+//  [14] = "#95aec7", /* cyan    */
+//  [15] = "#f3f4f5", /* white   */
+//
+//  /* special colors */
+//  [256] = "#e4e4e4", /* background */
+//  [257] = "#565e65", /* foreground */
+//};
+
 
 /*
  * Default colors (colorname index)
@@ -117,22 +179,7 @@ static const char *colorname[] = {
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 unsigned int defaultcs = 257;
-/*
- * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. Another logic would only make the simple feature too
- * complex.
- */
-static unsigned int defaultitalic = 7;
-static unsigned int defaultunderline = 7;
 
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-//unsigned int defaultfg = 7;
-//unsigned int defaultbg = 0;
-//static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
 /*
@@ -142,7 +189,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 6;
 
 /*
  * Default columns and rows numbers

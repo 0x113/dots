@@ -38,6 +38,9 @@ Plug 'cseelus/vim-colors-tone'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'reedes/vim-colors-pencil'
 Plug 'rakr/vim-one'
+Plug 'olivertaylor/vacme'
+Plug 'w0ng/vim-hybrid'
+Plug 'crusoexia/vim-monokai'
 
 call plug#end()
 " ------------------------------
@@ -176,7 +179,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-            \ 'colorscheme': 'nord',
+            \ 'colorscheme': 'PaperColor',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'filename' ] ],
@@ -291,13 +294,13 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo tone
-set background=dark
+colo base16-tomorrow-night
+set background=light
 "colorscheme agila
 set noshowmode
 
 autocmd BufWritePre * :%s/\s\+$//e
-"autocmd BufWritePost *.tex !pdflatex -output-directory pdfs/ % <afile>
+autocmd BufWritePost *.tex !xelatex -output-directory pdfs/ % <afile>
 
 " disable highlight for search
 set nohlsearch
@@ -330,6 +333,7 @@ set completeopt-=preview
 " au FileType dart set shiftwidth=2
 " On pressing tab, insert 4 spaces
 " ----------------------------------
-
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
+" use background from terminal
+hi Normal guibg=NONE ctermbg=NONE
