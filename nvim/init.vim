@@ -15,13 +15,15 @@ Plug 'posva/vim-vue'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'wakatime/vim-wakatime'
 Plug 'junegunn/goyo.vim'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex'  }
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/limelight.vim'
 Plug 'bilalq/lite-dfm'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " ------------------------------
 
 " ---------- COLORS ------------
@@ -294,8 +296,8 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo base16-tomorrow-night
-set background=light
+colo hybrid
+set background=dark
 "colorscheme agila
 set noshowmode
 
@@ -336,4 +338,22 @@ set completeopt-=preview
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " use background from terminal
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
+
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'default'
+
+"let g:airline_theme='hybrid'
+set laststatus=2
+
+set guifont=Hack:h20
+let g:airline_powerline_fonts = 1
+"let g:Powerline_symbols = 'fancy'
+
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='hybrid'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
