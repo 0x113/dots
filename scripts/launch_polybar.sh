@@ -1,7 +1,7 @@
 #sleep 1
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m /usr/bin/polybar --reload second &
+    MONITOR=$m /usr/bin/polybar --reload main &
   done
 else
   /usr/bin/polybar --reload second &
