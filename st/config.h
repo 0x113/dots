@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // dweep, scientifica, cherry, lemon
-static char *font = "scientifica:pixelsize=9:antialias=true:autohint=true";
+static char *font = "scientifica:pixelsize=11:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -84,7 +84,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-unsigned int alpha = 0xed;
+unsigned int alpha = 0xff;
 
 // TOMMOROW NIGHT
 static const char *colorname[] = {
@@ -110,7 +110,7 @@ static const char *colorname[] = {
   [15] = "#ffffff", /* white   */
 
   /* special colors */
-  [256] = "#1d1f21", /* background */
+  [256] = "#0F1419", /* background */
   [257] = "#c5c8c6", /* foreground */
 };
 
@@ -189,7 +189,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 6;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
