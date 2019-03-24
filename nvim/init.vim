@@ -173,6 +173,7 @@ set expandtab ts=4 sw=4 ai
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype smarty setlocal ts=2 sw=2 expandtab
 autocmd Filetype htmldjango setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
@@ -296,7 +297,7 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo hybrid
+colo ayu
 set background=dark
 "colorscheme agila
 set noshowmode
@@ -337,13 +338,8 @@ set completeopt-=preview
 " ----------------------------------
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
-" use background from terminal
-"hi Normal guibg=NONE ctermbg=NONE
+set guicursor=
 
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#formatter = 'default'
-
-"let g:airline_theme='hybrid'
 set laststatus=2
 
 set guifont=Hack:h20
@@ -353,7 +349,8 @@ let g:airline_powerline_fonts = 1
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='hybrid'
+let g:airline_theme='ayu_mirage'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
-
+let airline#extensions#tabline#show_buffers = 0
+"let g:airline#extensions#tabline#show_splits = 0
