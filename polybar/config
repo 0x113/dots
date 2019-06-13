@@ -1,5 +1,5 @@
 [colors]
-black  = #0d0d10
+black  = #000000
 red    = ${xrdb:color1}
 yellow = ${xrdb:color4}
 blue   = ${xrdb:color2}
