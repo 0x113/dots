@@ -17,7 +17,7 @@ offset-x = 0%
 offset-y = 0%
 
 
-radius            = 2
+radius             = 0
 ;monitor           = HDMI2
 monitor = ${env:MONITOR:}
 override-redirect = true
