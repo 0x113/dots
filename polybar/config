@@ -11,10 +11,10 @@ white  = #fafafa
 padding = 1
 
 [bar/main]
-width    = 30%
-height   = 25
-offset-x = 35%
-offset-y = 2%
+width    = 100%
+height   = 22
+offset-x = 0%
+offset-y = 0%
 
 
 radius            = 2
@@ -28,23 +28,23 @@ font-2 = Siji:pixelsize=7;2
 font-3 = unifont:pixelsize=8
 font-4 = Iosevka Medium:size=7;1
 
-background = ${colors.white}
+background = #000000
 foreground = ${colors.red}
 
 spacing = 1
 lineheight = 1
 padding = 4%
 
-modules-left   = i3
-modules-center = date
-modules-right  = battery
+modules-left   = time date
+modules-center =
+modules-right  = battery volume
 
 fixed-center  = true
 #wm-restack    = bspwm
 tray-position = right
 tray-maxsize  = 20
 
-bottom = true
+bottom = false
 
 [bar/second]
 width = 98%
@@ -181,31 +181,31 @@ full-at = 95
 
 format-padding = 0
 
-format-charging            = bat <label-charging>
-format-charging-foreground = ${colors.black}
-format-charging-background = ${colors.white}
+format-charging            = "\\ <label-charging>"
+format-charging-foreground = ${colors.white}
+format-charging-background = #ff0000
 format-charging-padding    = ${dims.padding}
 
-format-discharging            = bat <label-discharging>
-format-discharging-background = ${colors.white}
-format-discharging-foreground = ${colors.black}
+format-discharging            = "\\ <label-discharging>"
+format-discharging-background = ${colors.black}
+format-discharging-foreground = #ff0000
 format-discharging-padding    = ${dims.padding}
 
-format-full            = bat <label-full>
-format-full-background = ${colors.white}
-format-full-foreground = ${colors.black}
+format-full            = "\\ <label-full>"
+format-full-background = ${colors.black}
+format-full-foreground = #ff0000
 format-full-padding    = ${dims.padding}
 
-label-charging = "%percentage%"
-label-discharging = "%percentage%"
-label-full        = "%percentage%"
+label-charging = "%percentage%%"
+label-discharging = "%percentage%%"
+label-full        = "%percentage%%"
 
-label-discharging-foreground = ${colors.black}
-label-charging-foreground = ${colors.black}
-label-full-foreground = ${colors.black}
+label-discharging-foreground = ${colors.white}
+label-charging-foreground = ${colors.white}
+label-full-foreground = ${colors.white}
 
 ; Date
-[module/date]
+[module/time]
 type = internal/date
 interval = 30.0
 
@@ -214,26 +214,44 @@ date = "%m-%d-%Y"
 ;time-alt = %a %d %b
 time     = %H:%M
 
-label             = "%date% %time%"
-format            = "<label>"
-format-foreground = ${colors.black}
-format-background = ${colors.white}
-format-padding    = 2
+label             = "%time%"
+format            = "<label> // "
+label-foreground = ${colors.white}
+format-foreground = #ff0000
+#format-background = ${colors.white}
+format-padding    = 0
+
+[module/date]
+type = internal/date
+interval = 30.0
+
+date = "%d.%m"
+
+;time-alt = %a %d %b
+time     = %H:%M
+
+label             = "%date%"
+format            = "<label> //"
+label-foreground = ${colors.white}
+format-foreground = #ff0000
+#format-background = ${colors.white}
+format-padding    = 0
 
 ; Volume
 [module/volume]
 type = internal/pulseaudio
 
-format-volume = <label-volume>
-label-volume = "vol %percentage%   -"
-label-volume-foreground = ${colors.black}
-format-volume-background= ${colors.white}
-label-volume-padding = ${dims.padding}
-format-volume-padding = ${dims.padding}
+format-volume = " \\ <label-volume>"
+label-volume = "%percentage%"
+label-volume-foreground = ${colors.white}
+label-volume-background = ${colors.black}
+format-volume-foreground = #ff0000
+#label-volume-padding = ${dims.padding}
+#format-volume-padding = ${dims.padding}
 
-format-muted = <label-muted>
-label-muted = "mut "
-label-muted-foreground = ${colors.gray}
-label-muted-background = ${colors.white}
-label-muted-padding = ${dims.padding}
-format-muted-padding = ${dims.padding}
+format-muted = "\\ <label-muted>"
+label-muted = "muted "
+label-muted-foreground = ${colors.white}
+label-muted-background = ${colors.black}
+#label-muted-padding = ${dims.padding}
+#format-muted-padding = ${dims.padding}
