@@ -41,8 +41,10 @@ Plug 'cseelus/vim-colors-lucid'
 Plug 'reedes/vim-colors-pencil'
 Plug 'rakr/vim-one'
 Plug 'olivertaylor/vacme'
-Plug 'w0ng/vim-hybrid'
 Plug 'crusoexia/vim-monokai'
+Plug 'whatyouhide/vim-gotham'
+Plug 'NerdyPepper/vim-colors-plain'
+Plug 'challenger-deep-theme/vim'
 
 call plug#end()
 " ------------------------------
@@ -182,7 +184,7 @@ autocmd Filetype gohtml setlocal ts=2 sw=2 expandtab
 " ------------------------ LIGHTLINE ---------------------------
 set laststatus=2
 let g:lightline = {
-            \ 'colorscheme': 'PaperColor',
+            \ 'colorscheme': 'challenger_deep',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'fugitive', 'filename' ] ],
@@ -297,8 +299,8 @@ let g:seoul256_background = 233
 let g:seoul256_light_background = 256
 
 let g:sierra_Twilight = 1
-colo ayu
 set background=dark
+colo challenger_deep
 "colorscheme agila
 set noshowmode
 
@@ -342,14 +344,14 @@ set guicursor=
 
 set laststatus=2
 
-set guifont=Hack:h20
-let g:airline_powerline_fonts = 1
+"set guifont=Hack:h20
+"let g:airline_powerline_fonts = 1
 "let g:Powerline_symbols = 'fancy'
 
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='ayu_mirage'
+"let g:airline_powerline_fonts = 1
+let g:airline_theme='challenger_deep'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 let airline#extensions#tabline#show_buffers = 0
