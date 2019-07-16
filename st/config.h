@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // dweep, scientifica, cherry, lemon
-static char *font = "scientifica:pixelsize=11:antialias=true:autohint=true";
+static char *font = "scientifica:pixelsize=9:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -86,33 +86,62 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 unsigned int alpha = 0xff;
 
-// TOMMOROW NIGHT
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#1d1f21", /* black   */
-  [1] = "#cc6666", /* red     */
-  [2] = "#b5bd68", /* green   */
-  [3] = "#f0c674", /* yellow  */
-  [4] = "#81a2be", /* blue    */
-  [5] = "#b294bb", /* magenta */
-  [6] = "#8abeb7", /* cyan    */
-  [7] = "#c5c8c6", /* white   */
+  [0] = "#565575", /* black   */
+  [1] = "#ff8080", /* red     */
+  [2] = "#95ffa4", /* green   */
+  [3] = "#ffe9aa", /* yellow  */
+  [4] = "#91ddff", /* blue    */
+  [5] = "#c991e1", /* magenta */
+  [6] = "#aaffe4", /* cyan    */
+  [7] = "#cbe3e7", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#969896", /* black   */
-  [9]  = "#cc6666", /* red     */
-  [10] = "#b5bd68", /* green   */
-  [11] = "#f0c674", /* yellow  */
-  [12] = "#81a2be", /* blue    */
-  [13] = "#b294bb", /* magenta */
-  [14] = "#8abeb7", /* cyan    */
-  [15] = "#ffffff", /* white   */
+  [8]  = "#100e23", /* black   */
+  [9]  = "#ff5458", /* red     */
+  [10] = "#62d196", /* green   */
+  [11] = "#ffb378", /* yellow  */
+  [12] = "#65b2ff", /* blue    */
+  [13] = "#906cff", /* magenta */
+  [14] = "#63f2f1", /* cyan    */
+  [15] = "#a6b3cc", /* white   */
 
   /* special colors */
-  [256] = "#0F1419", /* background */
-  [257] = "#c5c8c6", /* foreground */
+  [256] = "#1e1c31", /* background */
+  [257] = "#cbe3e7", /* foreground */
 };
+
+
+// TOMMOROW NIGHT
+//static const char *colorname[] = {
+//
+//  /* 8 normal colors */
+//  [0] = "#1d1f21", /* black   */
+//  [1] = "#cc6666", /* red     */
+//  [2] = "#b5bd68", /* green   */
+//  [3] = "#f0c674", /* yellow  */
+//  [4] = "#81a2be", /* blue    */
+//  [5] = "#b294bb", /* magenta */
+//  [6] = "#8abeb7", /* cyan    */
+//  [7] = "#c5c8c6", /* white   */
+//
+//  /* 8 bright colors */
+//  [8]  = "#969896", /* black   */
+//  [9]  = "#cc6666", /* red     */
+//  [10] = "#b5bd68", /* green   */
+//  [11] = "#f0c674", /* yellow  */
+//  [12] = "#81a2be", /* blue    */
+//  [13] = "#b294bb", /* magenta */
+//  [14] = "#8abeb7", /* cyan    */
+//  [15] = "#ffffff", /* white   */
+//
+//  /* special colors */
+//  [256] = "#1d1f21", /* background */
+//  [257] = "#c5c8c6", /* foreground */
+//};
+
 
 // PRETO
 //static const char *colorname[] = {
@@ -170,6 +199,34 @@ static const char *colorname[] = {
 //  [256] = "#e4e4e4", /* background */
 //  [257] = "#565e65", /* foreground */
 //};
+
+// static const char *colorname[] = {
+// 
+//   /* 8 normal colors */
+//   [0] = "#282a2e", /* black   */
+//   [1] = "#444444", /* red     */
+//   [2] = "#5e5e5e", /* green   */
+//   [3] = "#7e7e7e", /* yellow  */
+//   [4] = "#3a3a3a", /* blue    */
+//   [5] = "#4c4c4c", /* magenta */
+//   [6] = "#afafaf", /* cyan    */
+//   [7] = "#f2f3f4", /* white   */
+// 
+//   /* 8 bright colors */
+//   [8]  = "#373b41", /* black   */
+//   [9]  = "#444444", /* red     */
+//   [10] = "#5e5e5e", /* green   */
+//   [11] = "#7e7e7e", /* yellow  */
+//   [12] = "#3a3a3a", /* blue    */
+//   [13] = "#4c4c4c", /* magenta */
+//   [14] = "#afafaf", /* cyan    */
+//   [15] = "#f2f3f4", /* white   */
+// 
+//   /* special colors */
+//   [256] = "#f2f3f4", /* background */
+//   [257] = "#0f0f0f", /* foreground */
+// };
+
 
 
 /*
