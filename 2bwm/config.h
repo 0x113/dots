@@ -44,6 +44,7 @@ static const char *menucmd[]   = { "", NULL };
 
 static const char *terminalcmd[]   = { "st", NULL };
 static const char *rofi[]   = { "rofi", "-show", "drun", NULL };
+static const char *headphones[] = { "sh", "/home/xa0s/.config/scripts/headphones.sh", NULL };
 static const char *volUp[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *volDown[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 
@@ -189,6 +190,7 @@ static key keys[] = {
     {  MOD ,              XK_F3,         start,             {.com = volUp}},
     {  MOD ,              XK_F2,         start,             {.com = volDown}},
     {  MOD ,              XK_d,          start,             {.com = rofi}},
+    {  MOD ,              XK_F5,         start,             {.com = headphones}},
     // Exit or restart 2bwm
     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
