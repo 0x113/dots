@@ -35,7 +35,7 @@ spacing = 1
 lineheight = 1
 padding = 4%
 
-modules-left   = time date
+modules-left   = time date mpd-song mpd-artist
 modules-center =
 modules-right  = battery volume
 
@@ -45,37 +45,6 @@ tray-position = right
 tray-maxsize  = 20
 
 bottom = false
-
-[bar/second]
-width = 98%
-height = 20
-;monitor = HDMI2
-monitor = ${env:MONITOR:}
-offset-y = 1%
-offset-x = 1%
-
-#module-margin = 2
-
-override-redirect = true
-font-0 = scientifica:pixelsize=8:weight=bold;1
-font-1 = FontAwesome:pixelsize=8;1
-font-2 = Siji:pixelsize=7;2
-font-3 = unifont:pixelsize=8
-font-4 = Iosevka Medium:size=7;1
-
-background = #00a0000a
-foreground = ${colors.red}
-
-modules-left   = i3 mpd
-;modules-center = who wlan date volume battery
-modules-right  = network volume battery date
-
-fixed-center  = true
-#wm-restack    = bspwm
-tray-position = right
-tray-maxsize  = 20
-
-bottom = true
 
 [module/i3]
 type = internal/i3
@@ -120,23 +89,37 @@ format-background = ${colors.white}
 format-foreground = ${colors.black}
 label = " %output%"
 
-[module/mpd]
+[module/mpd-song]
 type = internal/mpd
 
 ; Host where mpd is running (either ip or domain name)
 ; Can also be the full path to a unix socket where mpd is running.
 host = 127.0.0.1
 port = 6600
-label-song = %artist% - %title%
-label-offline = 🎜 mpd is offline
+label-song = %title%
+format-playing = "<label-song> // "
+#format-paused = "<label-song> // "
+format-paused  =
+format-stopped =
 label-song-foreground = ${colors.white}
 label-song-background = ${colors.black}
-label-song-padding = 2
-
 
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
 interval = 2
+
+[module/mpd-artist]
+type = "internal/mpd"
+host = 127.0.0.1
+port = 6600
+label-song = %album%
+format-playing = "<label-song> "
+#format-paused = "<label-song> "
+#format-stopped = "<label-song> "
+format-paused  =
+format-stopped =
+label-song-foreground = ${colors.white}
+label-song-background = ${colors.black}
 
 [module/network]
 type = internal/network
@@ -182,8 +165,8 @@ full-at = 95
 format-padding = 0
 
 format-charging            = "\\ <label-charging>"
-format-charging-foreground = ${colors.white}
-format-charging-background = #ff0000
+format-charging-background = ${colors.black}
+format-charging-foreground = #ff0000
 format-charging-padding    = ${dims.padding}
 
 format-discharging            = "\\ <label-discharging>"
@@ -201,8 +184,11 @@ label-discharging = "%percentage%%"
 label-full        = "%percentage%%"
 
 label-discharging-foreground = ${colors.white}
+label-discharging-background = ${colors.black}
 label-charging-foreground = ${colors.white}
+label-charging-background = ${colors.black}
 label-full-foreground = ${colors.white}
+label-full-background = ${colors.black}
 
 ; Date
 [module/time]
@@ -217,7 +203,7 @@ time     = %H:%M
 label             = "%time%"
 format            = "<label> // "
 label-foreground = ${colors.white}
-format-foreground = #ff0000
+format-foreground = #00ff00
 #format-background = ${colors.white}
 format-padding    = 0
 
@@ -231,7 +217,7 @@ date = "%d.%m"
 time     = %H:%M
 
 label             = "%date%"
-format            = "<label> //"
+format            = "<label> // "
 label-foreground = ${colors.white}
 format-foreground = #ff0000
 #format-background = ${colors.white}
