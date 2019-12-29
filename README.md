@@ -4,7 +4,7 @@
 
 - Aplication Launcher: `dmenu`
 - Music Player: `ncmpcpp`
-- Shell `fish`
+- Shell `zsh`
 - Terminal Emulator: `st`
 - Window Manager `i3`
 - Editor `vim`
