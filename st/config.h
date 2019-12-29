@@ -6,8 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // dweep, scientifica, cherry, lemon
-static char *font = "scientifica:pixelsize=9:antialias=true:autohint=true";
-static int borderpx = 10;
+static char *font = "scientifica:pixelsize=10:antialias=true:autohint=true";
+static int borderpx = 24;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -86,90 +86,33 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 unsigned int alpha = 0xff;
 
+// navy
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#565575", /* black   */
-  [1] = "#ff8080", /* red     */
-  [2] = "#95ffa4", /* green   */
-  [3] = "#ffe9aa", /* yellow  */
-  [4] = "#91ddff", /* blue    */
-  [5] = "#c991e1", /* magenta */
-  [6] = "#aaffe4", /* cyan    */
-  [7] = "#cbe3e7", /* white   */
+  [0] = "#003748", /* black   */
+  [1] = "#de4968", /* red     */
+  [2] = "#82b5c0", /* green   */
+  [3] = "#fad493", /* yellow  */
+  [4] = "#066386", /* blue    */
+  [5] = "#1bb0ce", /* magenta */
+  [6] = "#c6e5d9", /* cyan    */
+  [7] = "#d0d0d0", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#100e23", /* black   */
-  [9]  = "#ff5458", /* red     */
-  [10] = "#62d196", /* green   */
-  [11] = "#ffb378", /* yellow  */
-  [12] = "#65b2ff", /* blue    */
-  [13] = "#906cff", /* magenta */
-  [14] = "#63f2f1", /* cyan    */
-  [15] = "#a6b3cc", /* white   */
+  [8]  = "#134b5c", /* black   */
+  [9]  = "#fe4365", /* red     */
+  [10] = "#18a8a8", /* green   */
+  [11] = "#f8d49a", /* yellow  */
+  [12] = "#3587a7", /* blue    */
+  [13] = "#83dae3", /* magenta */
+  [14] = "#0fefd9", /* cyan    */
+  [15] = "#e7edea", /* white   */
 
   /* special colors */
-  [256] = "#1e1c31", /* background */
-  [257] = "#cbe3e7", /* foreground */
+  [256] = "#000f1f", /* background */
+  [257] = "#fdfdfd", /* foreground */
 };
-
-
-// TOMMOROW NIGHT
-//static const char *colorname[] = {
-//
-//  /* 8 normal colors */
-//  [0] = "#1d1f21", /* black   */
-//  [1] = "#cc6666", /* red     */
-//  [2] = "#b5bd68", /* green   */
-//  [3] = "#f0c674", /* yellow  */
-//  [4] = "#81a2be", /* blue    */
-//  [5] = "#b294bb", /* magenta */
-//  [6] = "#8abeb7", /* cyan    */
-//  [7] = "#c5c8c6", /* white   */
-//
-//  /* 8 bright colors */
-//  [8]  = "#969896", /* black   */
-//  [9]  = "#cc6666", /* red     */
-//  [10] = "#b5bd68", /* green   */
-//  [11] = "#f0c674", /* yellow  */
-//  [12] = "#81a2be", /* blue    */
-//  [13] = "#b294bb", /* magenta */
-//  [14] = "#8abeb7", /* cyan    */
-//  [15] = "#ffffff", /* white   */
-//
-//  /* special colors */
-//  [256] = "#1d1f21", /* background */
-//  [257] = "#c5c8c6", /* foreground */
-//};
-
-
-// PRETO
-//static const char *colorname[] = {
-//
-//  /* 8 normal colors */
-//  [0] = "#060606", /* black   */
-//  [1] = "#c2454e", /* red     */
-//  [2] = "#7cbf9e", /* green   */
-//  [3] = "#8a7a63", /* yellow  */
-//  [4] = "#e8dfd6", /* blue    */
-//  [5] = "#ff5879", /* magenta */
-//  [6] = "#44b5b1", /* cyan    */
-//  [7] = "#f2f1b9", /* white   */
-//
-//  /* 8 bright colors */
-//  [8]  = "#060606", /* black   */
-//  [9]  = "#ef5847", /* red     */
-//  [10] = "#a2d9b1", /* green   */
-//  [11] = "#beb090", /* yellow  */
-//  [12] = "#61778d", /* blue    */
-//  [13] = "#ff99a1", /* magenta */
-//  [14] = "#9ed9d8", /* cyan    */
-//  [15] = "#f6f6c9", /* white   */
-//
-//  /* special colors */
-//  [256] = "#060606", /* background */
-//  [257] = "#e8dfd6", /* foreground */
-//};
 
 // PENCIL
 
@@ -199,35 +142,6 @@ static const char *colorname[] = {
 //  [256] = "#e4e4e4", /* background */
 //  [257] = "#565e65", /* foreground */
 //};
-
-// static const char *colorname[] = {
-// 
-//   /* 8 normal colors */
-//   [0] = "#282a2e", /* black   */
-//   [1] = "#444444", /* red     */
-//   [2] = "#5e5e5e", /* green   */
-//   [3] = "#7e7e7e", /* yellow  */
-//   [4] = "#3a3a3a", /* blue    */
-//   [5] = "#4c4c4c", /* magenta */
-//   [6] = "#afafaf", /* cyan    */
-//   [7] = "#f2f3f4", /* white   */
-// 
-//   /* 8 bright colors */
-//   [8]  = "#373b41", /* black   */
-//   [9]  = "#444444", /* red     */
-//   [10] = "#5e5e5e", /* green   */
-//   [11] = "#7e7e7e", /* yellow  */
-//   [12] = "#3a3a3a", /* blue    */
-//   [13] = "#4c4c4c", /* magenta */
-//   [14] = "#afafaf", /* cyan    */
-//   [15] = "#f2f3f4", /* white   */
-// 
-//   /* special colors */
-//   [256] = "#f2f3f4", /* background */
-//   [257] = "#0f0f0f", /* foreground */
-// };
-
-
 
 /*
  * Default colors (colorname index)
