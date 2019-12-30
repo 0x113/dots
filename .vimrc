@@ -10,6 +10,9 @@ Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.clean-vim/plugged/gocode/vim/s
 " NerdTree
 Plug 'scrooloose/nerdtree'
 
+" Wakatime
+Plug 'wakatime/vim-wakatime'
+
 " ------------ COLORS ------------
 Plug 'relastle/bluewery.vim'
 Plug 'AlessandroYorba/Alduin'
