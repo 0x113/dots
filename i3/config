@@ -170,8 +170,8 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-bindsym $mod+F2 exec "pactl set-sink-volume 0 -5%"
-bindsym $mod+F3 exec "pactl set-sink-volume 0 +5%"
+bindsym $mod+F2 exec "sh $HOME/.config/scripts/volume.sh -5%"
+bindsym $mod+F3 exec "sh $HOME/.config/scripts/volume.sh +5%"
 bindsym $mod+F11 exec "sh /home/xa0s/.config/scripts/lock.sh"
 
 bindsym $mod+F5 exec "sh /home/xa0s/.config/scripts/headphones.sh"
