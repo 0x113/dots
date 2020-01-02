@@ -173,6 +173,9 @@ bindsym $mod+r mode "resize"
 bindsym $mod+F2 exec "sh $HOME/.config/scripts/volume.sh -5%"
 bindsym $mod+F3 exec "sh $HOME/.config/scripts/volume.sh +5%"
 bindsym $mod+F11 exec "sh /home/xa0s/.config/scripts/lock.sh"
+bindsym F6 exec "mpc prev"
+bindsym F7 exec "mpc toggle"
+bindsym F8 exec "mpc next"
 
 bindsym $mod+F5 exec "sh /home/xa0s/.config/scripts/headphones.sh"
 
