@@ -1,11 +1,12 @@
-call plug#begin('~/.clean-vim/plugged')
+call plug#begin('~/.vim/plugged')
 " ------------ PLUGINS -----------
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.clean-vim/plugged/gocode/vim/symlink.sh' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
@@ -16,6 +17,8 @@ Plug 'wakatime/vim-wakatime'
 " ------------ COLORS ------------
 Plug 'relastle/bluewery.vim'
 Plug 'AlessandroYorba/Alduin'
+Plug 'NerdyPepper/vim-colors-plain'
+Plug 'arzg/vim-colors-xcode'
 
 " NerdTree config
 map <F8> :NERDTreeToggle<CR>
@@ -79,5 +82,10 @@ autocmd BufWritePost *.tex !xelatex -output-directory pdfs/ % <afile>
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 syntax on
-colorscheme bluewery
+set t_Co=256                         " Enable 256 colors
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+set background=dark
+colorscheme plain
+set relativenumber
+set cursorline
 hi clear SpellBad
