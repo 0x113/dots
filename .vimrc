@@ -7,6 +7,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
@@ -14,17 +16,23 @@ Plug 'scrooloose/nerdtree'
 " Wakatime
 Plug 'wakatime/vim-wakatime'
 
+" Emmet
+Plug 'mattn/emmet-vim'
+
 " ------------ COLORS ------------
 Plug 'relastle/bluewery.vim'
 Plug 'AlessandroYorba/Alduin'
 Plug 'NerdyPepper/vim-colors-plain'
 Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
 
 " NerdTree config
 map <F8> :NERDTreeToggle<CR>
 
+" Emmet conifg
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 call plug#end()
-set termguicolors
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
@@ -82,10 +90,10 @@ autocmd BufWritePost *.tex !xelatex -output-directory pdfs/ % <afile>
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 syntax on
-set t_Co=256                         " Enable 256 colors
-set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+"set t_Co=256                         " Enable 256 colors
+"set termguicolors                    " Enable GUI colors for the terminal to get truecolor
 set background=dark
-colorscheme plain
+colorscheme alduin
 set relativenumber
 set cursorline
 hi clear SpellBad
