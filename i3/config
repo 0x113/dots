@@ -32,8 +32,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -181,14 +181,12 @@ bar {
 }
 
 # bindings
-bindsym $mod+F2 exec "sh ~/.config/scripts/volume.sh -5%"
-bindsym $mod+F3 exec "sh ~/.config/scripts/volume.sh +5%"
-bindsym $mod+F11 exec "sh ~/.config/scripts/lock.sh"
-bindsym $mod+F6 exec "mpc prev"
-bindsym $mod+F7 exec "mpc toggle"
-bindsym $mod+F8 exec "mpc next"
+bindsym $mod+Alt_L exec "mpc prev"
+bindsym $mod+Menu exec "mpc toggle"
+bindsym $mod+Alt_R exec "mpc next"
 
 exec --no-startup-id "sh ~/.fehbg"
+exec --no-startup-id "xrandr --output HDMI2 --off"
 exec --no-startup-id "sh $HOME/.config/scripts/dual_monitor.sh"
 exec --no-startup-id "compton"
 exec --no-startup-id "mpd"
@@ -208,3 +206,5 @@ client.focused_inactive #bbbbbb     #bbbbbb 		#121212  			#555555       #bbbbbb
 client.unfocused        #bbbbbb 		#bbbbbb     #121212  			#555555       #bbbbbb
 client.urgent           #bbbbbb     #bbbbbb     #121212  			#555555       #bbbbbb
 client.placeholder      #bbbbbb 		#bbbbbb     #121212  			#555555       #bbbbbb
+
+
