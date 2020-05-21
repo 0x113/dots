@@ -1,6 +1,6 @@
 # Display ..
 song_list_format = " $0%n $1• $8%t $R$0%A "
-song_columns_list_format = "(3)[]{}(75)[white]{t} (1)[blue]{A}"
+song_columns_list_format = "(3)[]{}(75)[white]{t} (1)[green]{A}"
 song_status_format = " $3%t $0 $1%a "
 playlist_display_mode = "columns" (classic/columns)
 
