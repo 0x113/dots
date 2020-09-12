@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "scientifica:pixelsize=10:antialias=true:autohint=true";
+static char *font = "scientifica:pixelsize=11:antialias=false:autohint=true";
 static int borderpx = 30;
 
 /*
@@ -89,10 +89,10 @@ static const char *colorname[] = {
   [1] = "#c2454e", /* red     */
   [2] = "#7cbf9e", /* green   */
   [3] = "#8a7a63", /* yellow  */
-  [4] = "#e8dfd6", /* blue    */
+  [4] = "#2e3340", /* blue    */
   [5] = "#ff5879", /* magenta */
   [6] = "#44b5b1", /* cyan    */
-  [7] = "#e8dfd6", /* white   */
+  [7] = "#f2f1b9", /* white   */
 
   /* 8 bright colors */
   [8]  = "#065f73", /* black   */
@@ -105,7 +105,7 @@ static const char *colorname[] = {
   [15] = "#f6f6c9", /* white   */
 
   /* special colors */
-  [256] = "#222222", /* background */
+  [256] = "#142c35", /* background */
   [257] = "#e8dfd6", /* foreground */
 };
 
