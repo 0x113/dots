@@ -7,7 +7,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " NerdTree
@@ -19,15 +19,39 @@ Plug 'wakatime/vim-wakatime'
 " Emmet
 Plug 'mattn/emmet-vim'
 
+" Goyo
+Plug 'junegunn/goyo.vim'
+let g:goyo_width = "80%"
+let g:goyo_height = "90%"
+let g:goyo_lineaer = 0
+
+" Limelight
+Plug 'junegunn/limelight.vim'
+let g:limelight_default_coefficient = 0.5
+let g:limelight_paragraph_span = 0    " include preceding/following paragraphs
+let g:limelight_priority       = 10    " -1 to hlsearch highlight all paragraphs, 1 per paragraph
+
 " ------------ COLORS ------------
 Plug 'relastle/bluewery.vim'
 Plug 'AlessandroYorba/Alduin'
-Plug 'NerdyPepper/vim-colors-plain'
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
+Plug 'hardselius/warlock'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'nanotech/jellybeans.vim'
+Plug 'fxn/vim-monochrome'
+Plug 'challenger-deep-theme/vim'
+Plug 'NerdyPepper/vim-colors-plain'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'ayu-theme/ayu-vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'dracula/vim'
+Plug 'nightsense/cosmic_latte'
+Plug 'joshdick/onedark.vim'
 
 " NerdTree config
-map <F8> :NERDTreeToggle<CR>
+nnoremap <C-p> :NERDTreeToggle<CR>
 
 " Emmet conifg
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
@@ -78,6 +102,8 @@ map <C-l> <C-W>l
 " tabs binding
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
+map <C-_> <Esc>:tabprev<CR>
+map <C-\> <Esc>:tabnext<CR>
 
 let g:go_highlight_trailing_whitespace_error=0
 au InsertEnter *.go match goSpaceError /\s\+\%#\@<!$/
@@ -90,10 +116,18 @@ autocmd BufWritePost *.tex !xelatex -output-directory pdfs/ % <afile>
 autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 syntax on
-"set t_Co=256                         " Enable 256 colors
-"set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set t_Co=256                         " Enable 256 colors
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
+let g:seoul256_background = 233
+let ayucolor="dark"   " for dark version of theme
+colo xcodedarkhc
+hi LineNr ctermbg=NONE guibg=NONE
 set background=dark
-colorscheme alduin
 set relativenumber
-set cursorline
+"set cursorline
 hi clear SpellBad
+set t_md=
+
